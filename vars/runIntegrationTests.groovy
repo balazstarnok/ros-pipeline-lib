@@ -1,6 +1,6 @@
 def call() {
     sh '''
-    cd ${CATKIN_WS}
+    cd ${ROS_WS}
     source devel/setup.bash
     rostest my_package integration_test.launch
     '''
