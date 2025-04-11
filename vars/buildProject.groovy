@@ -1,8 +1,10 @@
 def call() {
     sh '''
-    cd ${CATKIN_WS}
     ls -a
     pwd
-    echo ${CATKIN_WS}
+    echo ${ROS_WS}
+    source /opt/ros/noetic/setup.bash
+    cd ${ROS_WS}
+    catkin_make
     '''
 }
