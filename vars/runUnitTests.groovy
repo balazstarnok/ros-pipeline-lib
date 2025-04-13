@@ -7,5 +7,4 @@ def call() {
     catkin_test_results || true
     "
     '''
-    junit '**/build/test_results/**/*.xml'
 }
