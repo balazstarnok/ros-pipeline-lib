@@ -43,6 +43,6 @@ def call() {
 
     # Close HTML
     echo "</ul></body></html>" >> $WORKSPACE/test-artifacts/summary.html
-        '''
+    '''
 }
 
