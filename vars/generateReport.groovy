@@ -16,23 +16,23 @@ def call() {
 
     # Now properly generate the HTML using cat <<EOF
     cat <<EOF > $WORKSPACE/test-artifacts/summary.html
-    <html>
-    <head>
-    <title>Simulation Test Report</title>
-    <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .pass { color: green; font-weight: bold; }
-    .fail { color: red; font-weight: bold; }
-    ul { list-style-type: none; padding: 0; }
-    li { padding: 5px 0; }
-    </style>
-    </head>
-    <body>
-    <h1>Simulation Test Summary</h1>
-    <p><span class="pass">Passed Tests: $PASSED</span></p>
-    <p><span class="fail">Failed Tests: $FAILED</span></p>
-    <h2>Details</h2>
-    <ul>
+        <html>
+        <head>
+        <title>Simulation Test Report</title>
+        <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 5px 0; }
+        </style>
+        </head>
+        <body>
+        <h1>Simulation Test Summary</h1>
+        <p><span class="pass">Passed Tests: $PASSED</span></p>
+        <p><span class="fail">Failed Tests: $FAILED</span></p>
+        <h2>Details</h2>
+        <ul>
     EOF
 
     # Append list of test files
