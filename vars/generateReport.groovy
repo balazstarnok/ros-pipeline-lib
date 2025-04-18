@@ -30,7 +30,7 @@ def call() {
     cat <<EOF > $WORKSPACE/test-artifacts/summary.html
 <html>
 <head>
-<title>Simulation Test Report</title>
+<title>Test Report</title>
 <style>
 body { font-family: Arial, sans-serif; margin: 20px; }
 .pass { color: green; font-weight: bold; }
@@ -51,6 +51,13 @@ li { padding: 5px 0; }
 EOF
 
     # Append list of test files
+    TEST_RESULTS=$(find $WORKSPACE/test-artifacts/unit-tests-results -name "*.xml")
+    for file in $TEST_RESULTS; do
+        BASENAME=$(basename "$file")
+        echo "<li>$BASENAME</li>" >> $WORKSPACE/test-artifacts/summary.html
+    done
+    
+    TEST_RESULTS=$(find $WORKSPACE/test-artifacts/test_results -name "*.xml")
     for file in $TEST_RESULTS; do
         BASENAME=$(basename "$file")
         echo "<li>$BASENAME</li>" >> $WORKSPACE/test-artifacts/summary.html
