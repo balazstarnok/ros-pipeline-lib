@@ -46,7 +46,7 @@ li { padding: 5px 0; }
 <h1>Simulation Test Summary</h1>
 <p><span class="pass">Passed Tests: $PASSED</span></p>
 <p><span class="fail">Failed Tests: $FAILED</span></p>
-<h2>Details</h2>
+<h1>Details</h1>
 <ul>
 EOF
 
