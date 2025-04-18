@@ -14,6 +14,18 @@ def call() {
         fi
     done
 
+    TEST_RESULTS=$(find $WORKSPACE/test-artifacts/unit-tests-results -name "*.xml")
+    UNIT_PASSED=0
+    UNIT_FAILED=0
+
+    for file in $TEST_RESULTS; do
+        if grep -q 'failures="0"' "$file"; then
+            UNIT_PASSED=$((UNIT_PASSED+1))
+        else
+            UNIT_FAILED=$((UNIT_FAILED+1))
+        fi
+    done
+
     # Correctly generate the HTML
     cat <<EOF > $WORKSPACE/test-artifacts/summary.html
 <html>
@@ -28,6 +40,9 @@ li { padding: 5px 0; }
 </style>
 </head>
 <body>
+<h1>Unit Test Summary</h1>
+<p><span class="pass">Passed Tests: $UNIT_PASSED</span></p>
+<p><span class="fail">Failed Tests: $UNIT_FAILED</span></p>
 <h1>Simulation Test Summary</h1>
 <p><span class="pass">Passed Tests: $PASSED</span></p>
 <p><span class="fail">Failed Tests: $FAILED</span></p>
