@@ -10,7 +10,7 @@ def call() {
         cp -r /root/.ros/test_results/* $WORKSPACE/test-artifacts/test_results/ || true
 
         # List copied test results
-        ls -l $WORKSPACE/test-artifacts/test_results/
+        ls -l $WORKSPACE/test-artifacts/test_results/gem_gazebo/
     "
     '''
 }    
