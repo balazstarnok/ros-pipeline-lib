@@ -7,6 +7,7 @@ def call() {
         source /opt/ros/noetic/setup.bash
         catkin init || true
         catkin config --extend /opt/ros/noetic --cmake-args -DCMAKE_BUILD_TYPE=Release
+        catkin clean -y
         catkin build --no-status
     "
     '''
